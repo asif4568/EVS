@@ -41,28 +41,28 @@ After compiling, run the program:
 
 ```
 Prathider songkha likhun (Minimum 1, Max 10) : 3
-Prathi 1 er naam likhun (Rizz Up!): John
-Prathi 2 er naam likhun (Rizz Up!): Sarah
-Prathi 3 er naam likhun (Rizz Up!): Michael
+Prathi 1 er naam likhun (Rizz Up!): Sheikh Hasina
+Prathi 2 er naam likhun (Rizz Up!): Khaleda Jia
+Prathi 3 er naam likhun (Rizz Up!): Dr.Eusuf 
 
 Voter songkha likhun (Min 1) : 5
 
 Prathider Talika (Vote Wisely):
-1. John
-2. Sarah
-3. Michael
+1. Sheikh Hasina
+2. Khaleda Jia
+3. Dr. Eusuf
 Voter 1, apnar poshondo likhun (1-3) : 1
 Vote Casted , Skibidi Yes Yes Yes!
 
 [... voting continues for each voter ...]
 
 ----- FOLAFOL -----
-John: 2 vote (40.0%) 
-Sarah: 2 vote (40.0%) 
-Michael: 1 vote (20.0%) 
+Sheikh Hasina: 2 vote (40.0%) 
+Khaleda Jia: 2 vote (40.0%) 
+Dr. Eusuf: 1 vote (20.0%) 
 
-Bijoyi: John (2 vote, 40.0%)!!
-Once again John
+Bijoyi: Sheikh Hasina (2 vote, 40.0%)!!
+Once again Sheikh Hasina
 ```
 
 ## Notes
