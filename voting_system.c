@@ -44,24 +44,37 @@ void getVotes(int voterCount) {
 }
 
 // Vote gononar function 
-void getResults() {
-    int maxVotes = 0, winnerIndex = -1, totalVotes = 0;
+void getResults(int numVoters) {
+    int maxVotes = 0, totalVotes = 0;
+    int winnerIndices[MAX_C];
+    int winnerCount = 0;
+    int winnerIndex = -1;
     for (int i = 0; i < candidateCount; i++) {
         totalVotes += allCandidates[i].votes;
         if (allCandidates[i].votes > maxVotes) {
             maxVotes = allCandidates[i].votes;
-            winnerIndex = i;
+            winnerCount = 1;
+            winnerIndices[0] = i;
+        } else if (allCandidates[i].votes == maxVotes) {
+            winnerIndices[winnerCount++] = i;
         }
     }
-    printf("\n-----  FOLAFOL  -----\n");
-    for (int i = 0; i < candidateCount; i++) {
-        printf("%s: %d vote (%.1f%%) \n", allCandidates[i].name, allCandidates[i].votes, (float)allCandidates[i].votes * 100 / totalVotes);
-    }
-    if (winnerIndex != -1) {
-        printf("\n Bijoyi: %s  (%d vote, %.1f%%)!!\n", allCandidates[winnerIndex].name, maxVotes, (float)maxVotes * 100 / totalVotes);
-        printf("Once again %s \n",allCandidates[winnerIndex].name);
+    if (winnerCount == 1) {
+        printf("\n Bijoyi: %s  (%d vote, %.1f%%)!!\n", allCandidates[winnerIndices[0]].name, maxVotes, (float)maxVotes * 100 / totalVotes);
+        printf("Once again %s \n", allCandidates[winnerIndices[0]].name);
     } else {
-        printf("No Winner? Bro this ain’t real \n");
+        printf("\nTie hoye geche bro\n");
+        for (int i = 0; i < winnerCount; i++) {
+            printf("%s\n", allCandidates[winnerIndices[i]].name);
+        }
+        printf("\nRevote required!\n");
+        for (int i = 0; i < candidateCount; i++) {
+            allCandidates[i].votes = 0; // Reset votes for revote
+        }
+        for (int i = 0; i < numVoters; i++) {
+            getVotes(i);
+        }
+        getResults(numVoters); // Recursive call for revote
     }
 }
 
@@ -87,6 +100,6 @@ int main() {
     for (int i = 0; i < numVoters; i++) {
         getVotes(i);
     }
-    getResults(); // Vote gonona & folafol dekhanor function call kora
+    getResults(numVoters); // Vote gonona & folafol dekhanor function call kora
     return 0;
 }
